@@ -9,6 +9,30 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ride_tracker Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+	<repositories>
+		<repository>
+			<id>hzntes</id>
+			<name>NTES-HZ Maven Repository</name>
+			<url>http://mvn.hz.netease.com/artifactory/repo</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>hzntes-mail</id>
+			<name>NTES-MAIL-HZ Maven Repository</name>
+			<url>http://repo.mail.netease.com/artifactory/repo</url>
+			<layout>default</layout>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>maven</id>
+			<name>Official Maven Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -49,11 +73,11 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.3.6.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.12</version>
-		</dependency>
+        <dependency>
+            <groupId>netease.ddb</groupId>
+            <artifactId>db</artifactId>
+            <version>4.5.7.1</version>
+        </dependency>
 	</dependencies>
 	<build>
 		<finalName>ride_tracker</finalName>

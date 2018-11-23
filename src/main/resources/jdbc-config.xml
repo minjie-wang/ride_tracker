@@ -9,10 +9,10 @@
     <context:component-scan base-package="com.pluralsight"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/ride_tracker"/>
-        <property name="username" value="root"/>
-        <property name="password" value="password"/>
+        <property name="driverClassName" value="com.netease.backend.db.DBDriver"/>
+        <property name="url" value="192.168.130.78:8890?key=/Users/daniel/Documents/yanxuan/yanxuan-settlement-gateway/src/main/resources/secret.key"/>
+        <property name="username" value="jy4"/>
+        <property name="password" value="jy4"/>
     </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
