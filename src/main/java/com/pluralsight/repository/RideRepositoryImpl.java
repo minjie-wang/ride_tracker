@@ -1,15 +1,13 @@
 package com.pluralsight.repository;
 
+import com.netease.backend.db.DBConnection;
 import com.pluralsight.model.Ride;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository("rideRepository")
 public class RideRepositoryImpl implements RideRepository {
@@ -20,6 +18,13 @@ public class RideRepositoryImpl implements RideRepository {
     @Override
     public Ride createRide(Ride ride) {
         jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
+
+        try (DBConnection connection = (DBConnection) jdbcTemplate.getDataSource().getConnection()) {
+            long id = connection.allocateRecordId("ride");
+            System.out.println(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
 //
 //        List<String> columns = new ArrayList<>();
